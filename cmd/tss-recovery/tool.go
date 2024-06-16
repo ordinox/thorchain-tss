@@ -15,6 +15,7 @@ import (
 	coskey "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bech32 "github.com/cosmos/cosmos-sdk/types/bech32/legacybech32"
+	"github.com/decred/dcrd/dcrec/secp256k1/v4"
 	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
 )
 
@@ -51,15 +52,17 @@ func setupBech32Prefix() {
 	config.SetBech32PrefixForConsensusNode("thorc", "thorcpub")
 }
 
+func ConvertBigIntToFieldVal(bi *big.Int) *secp256k1.FieldVal {
+	var scalar secp256k1.FieldVal
+	scalar.SetByteSlice(bi.Bytes())
+	return &scalar
+}
+
 func getTssPubKey(x, y *big.Int) (string, sdk.AccAddress, error) {
 	if x == nil || y == nil {
 		return "", sdk.AccAddress{}, errors.New("invalid points")
 	}
-	tssPubKey := btcec.PublicKey{
-		Curve: btcec.S256(),
-		X:     x,
-		Y:     y,
-	}
+	tssPubKey := btcec.NewPublicKey(ConvertBigIntToFieldVal(x), ConvertBigIntToFieldVal(y))
 	pubKeyCompressed := coskey.PubKey{
 		Key: tssPubKey.SerializeCompressed(),
 	}

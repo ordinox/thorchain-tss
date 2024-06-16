@@ -1,6 +1,7 @@
 package conversion
 
 import (
+	"crypto/elliptic"
 	"encoding/json"
 	"math/big"
 	"sort"
@@ -201,15 +202,15 @@ func (p *ConversionTestSuite) TestSetupPartyIDMap(c *C) {
 }
 
 func (p *ConversionTestSuite) TestTssPubKey(c *C) {
-	sk, err := btcec.NewPrivateKey(btcec.S256())
+	sk, err := btcec.NewPrivateKey()
 	c.Assert(err, IsNil)
-	point, err := crypto.NewECPoint(btcec.S256(), sk.X, sk.Y)
+	point, err := crypto.NewECPoint(elliptic.P224(), sk.ToECDSA().X, sk.ToECDSA().Y)
 	c.Assert(err, IsNil)
 	_, _, err = GetTssPubKey(point)
 	c.Assert(err, IsNil)
 
 	// create an invalid point
-	invalidPoint := crypto.NewECPointNoCurveCheck(btcec.S256(), sk.X, new(big.Int).Add(sk.Y, big.NewInt(1)))
+	invalidPoint := crypto.NewECPointNoCurveCheck(btcec.S256(), sk.ToECDSA().X, new(big.Int).Add(sk.ToECDSA().Y, big.NewInt(1)))
 	_, _, err = GetTssPubKey(invalidPoint)
 	c.Assert(err, NotNil)
 

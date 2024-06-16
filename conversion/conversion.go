@@ -14,6 +14,7 @@ import (
 	"github.com/btcsuite/btcd/btcec/v2"
 	coskey "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types/bech32/legacybech32"
+	"github.com/decred/dcrd/dcrec/secp256k1/v4"
 	crypto2 "github.com/libp2p/go-libp2p-core/crypto"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"gitlab.com/thorchain/binance-sdk/common/types"
@@ -147,16 +148,18 @@ func isOnCurve(x, y *big.Int) bool {
 	return curve.IsOnCurve(x, y)
 }
 
+func ConvertBigIntToModNScalar(bi *big.Int) *secp256k1.FieldVal {
+	var scalar secp256k1.FieldVal
+	scalar.SetByteSlice(bi.Bytes())
+	return &scalar
+}
+
 func GetTssPubKey(pubKeyPoint *crypto.ECPoint) (string, types.AccAddress, error) {
 	// we check whether the point is on curve according to Kudelski report
 	if pubKeyPoint == nil || !isOnCurve(pubKeyPoint.X(), pubKeyPoint.Y()) {
 		return "", types.AccAddress{}, errors.New("invalid points")
 	}
-	tssPubKey := btcec.PublicKey{
-		Curve: btcec.S256(),
-		X:     pubKeyPoint.X(),
-		Y:     pubKeyPoint.Y(),
-	}
+	tssPubKey := btcec.NewPublicKey(ConvertBigIntToModNScalar(pubKeyPoint.X()), ConvertBigIntToModNScalar(pubKeyPoint.Y()))
 
 	compressedPubkey := coskey.PubKey{
 		Key: tssPubKey.SerializeCompressed(),

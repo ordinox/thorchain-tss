@@ -13,6 +13,8 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec/v2"
+	btcecdsa "github.com/btcsuite/btcd/btcec/v2/ecdsa"
+	"github.com/decred/dcrd/dcrec/secp256k1/v4"
 	"github.com/ipfs/go-log"
 	"github.com/olekukonko/tablewriter"
 	"github.com/pkg/errors"
@@ -107,6 +109,18 @@ func setUp(level string) {
 	}
 }
 
+func ConvertBigIntToFieldVal(bi *big.Int) *secp256k1.FieldVal {
+	var scalar secp256k1.FieldVal
+	scalar.SetByteSlice(bi.Bytes())
+	return &scalar
+}
+
+func ConvertBigIntToModNScalar(bi *big.Int) *secp256k1.ModNScalar {
+	var scalar secp256k1.ModNScalar
+	scalar.SetByteSlice(bi.Bytes())
+	return &scalar
+}
+
 func runSign(dir string, t int) {
 	setUp(libLogLevel)
 
@@ -185,8 +199,9 @@ outer:
 				); !ok {
 					panic("ECDSA signature verification did not pass")
 				}
-				btcecSig := &btcec.Signature{R: r, S: s}
-				if ok = btcecSig.Verify(msg.Bytes(), (*btcec.PublicKey)(&pk)); !ok {
+				btcecSig := btcecdsa.NewSignature(ConvertBigIntToModNScalar(r), ConvertBigIntToModNScalar(s))
+				pubK := btcec.NewPublicKey(ConvertBigIntToFieldVal(pk.X), ConvertBigIntToFieldVal(pk.Y))
+				if ok = btcecSig.Verify(msg.Bytes(), pubK); !ok {
 					panic("ECDSA signature verification 2 did not pass")
 				}
 				break outer
