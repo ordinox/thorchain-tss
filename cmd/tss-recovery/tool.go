@@ -11,11 +11,11 @@ import (
 	"math/big"
 	"os"
 
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
-	"github.com/btcsuite/btcd/btcec"
+	"github.com/btcsuite/btcd/btcec/v2"
 	coskey "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bech32 "github.com/cosmos/cosmos-sdk/types/bech32/legacybech32"
+	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
 )
 
 type (
