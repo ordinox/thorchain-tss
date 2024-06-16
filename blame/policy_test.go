@@ -5,8 +5,8 @@ import (
 	"sync"
 	"testing"
 
-	bkg "gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
-	btss "gitlab.com/thorchain/tss/tss-lib/tss"
+	bkg "github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 	"github.com/libp2p/go-libp2p-core/peer"
 	. "gopkg.in/check.v1"
 

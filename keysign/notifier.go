@@ -8,7 +8,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types/bech32/legacybech32"
 	"github.com/tendermint/btcd/btcec"
-	"gitlab.com/thorchain/tss/tss-lib/common"
+	"github.com/ordinox/thorchain-tss-lib/common"
 )
 
 // Notifier is design to receive keysign signature, success or failure

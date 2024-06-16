@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-peerstore/addr"
 	ma "github.com/multiformats/go-multiaddr"

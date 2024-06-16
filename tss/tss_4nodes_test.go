@@ -15,7 +15,7 @@ import (
 	"time"
 
 	maddr "github.com/multiformats/go-multiaddr"
-	btsskeygen "gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
+	btsskeygen "github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	"gopkg.in/check.v1"
 	. "gopkg.in/check.v1"
 

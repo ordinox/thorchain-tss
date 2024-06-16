@@ -16,7 +16,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bech32 "github.com/cosmos/cosmos-sdk/types/bech32/legacybech32"
 	"github.com/decred/dcrd/dcrec/secp256k1/v4"
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 )
 
 type (

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync"
 
-	btss "gitlab.com/thorchain/tss/tss-lib/tss"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"

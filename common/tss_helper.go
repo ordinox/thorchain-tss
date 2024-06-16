@@ -18,9 +18,9 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	tcrypto "github.com/tendermint/tendermint/crypto"
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/signing"
-	btss "gitlab.com/thorchain/tss/tss-lib/tss"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/signing"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 
 	"github.com/ordinox/thorchain-tss/blame"
 	"github.com/ordinox/thorchain-tss/messages"

@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	tsslibcommon "gitlab.com/thorchain/tss/tss-lib/common"
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/signing"
+	tsslibcommon "github.com/ordinox/thorchain-tss-lib/common"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/signing"
 	. "gopkg.in/check.v1"
 
 	"github.com/ordinox/thorchain-tss/common"

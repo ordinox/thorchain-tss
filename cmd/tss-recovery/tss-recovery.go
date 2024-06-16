@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"gitlab.com/thorchain/tss/tss-lib/crypto/vss"
+	"github.com/ordinox/thorchain-tss-lib/crypto/vss"
 	. "github.com/decred/dcrd/dcrec/secp256k1"
 )
 

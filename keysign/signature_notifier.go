@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.com/thorchain/tss/tss-lib/common"
-	tsslibcommon "gitlab.com/thorchain/tss/tss-lib/common"
+	"github.com/ordinox/thorchain-tss-lib/common"
+	tsslibcommon "github.com/ordinox/thorchain-tss-lib/common"
 	"github.com/golang/protobuf/proto"
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/network"

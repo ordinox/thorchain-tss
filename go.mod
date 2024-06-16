@@ -32,7 +32,6 @@ require (
 	github.com/tendermint/btcd v0.1.1
 	github.com/tendermint/tendermint v0.34.14
 	gitlab.com/thorchain/binance-sdk v1.2.3-0.20210117202539-d569b6b9ba5d
-	gitlab.com/thorchain/tss/tss-lib v0.2.0
 	go.uber.org/atomic v1.7.0
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
 	golang.org/x/text v0.3.6
@@ -40,7 +39,11 @@ require (
 	gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b
 )
 
-require github.com/btcsuite/btcd/btcec/v2 v2.3.3
+require (
+	github.com/btcsuite/btcd/btcec/v2 v2.3.3
+	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1
+	github.com/ordinox/thorchain-tss-lib v0.0.0-20240616150239-f2ec0f233041
+)
 
 require (
 	filippo.io/edwards25519 v1.0.0-beta.2 // indirect
@@ -65,7 +68,6 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/decred/dcrd/dcrec/edwards/v2 v2.0.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v2 v2.0.0 // indirect
-	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1 // indirect
 	github.com/dgraph-io/badger/v2 v2.2007.2 // indirect
 	github.com/dgraph-io/ristretto v0.0.3 // indirect
 	github.com/dgryski/go-farm v0.0.0-20200201041132-a6ae2369ad13 // indirect

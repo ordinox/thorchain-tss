@@ -15,8 +15,8 @@ import (
 	"testing"
 	"time"
 
-	tsslibcommon "gitlab.com/thorchain/tss/tss-lib/common"
-	btss "gitlab.com/thorchain/tss/tss-lib/tss"
+	tsslibcommon "github.com/ordinox/thorchain-tss-lib/common"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 	"github.com/ipfs/go-log"
 	"github.com/libp2p/go-libp2p-peerstore/addr"
 	zlog "github.com/rs/zerolog/log"

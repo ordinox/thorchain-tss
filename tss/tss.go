@@ -15,7 +15,7 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	tcrypto "github.com/tendermint/tendermint/crypto"
-	bkeygen "gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
+	bkeygen "github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 
 	"github.com/ordinox/thorchain-tss/common"
 	"github.com/ordinox/thorchain-tss/conversion"

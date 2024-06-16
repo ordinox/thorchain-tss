@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	btss "gitlab.com/thorchain/tss/tss-lib/tss"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/libp2p/go-libp2p-core/peer"
 

@@ -18,8 +18,8 @@ import (
 	crypto2 "github.com/libp2p/go-libp2p-core/crypto"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"gitlab.com/thorchain/binance-sdk/common/types"
-	"gitlab.com/thorchain/tss/tss-lib/crypto"
-	btss "gitlab.com/thorchain/tss/tss-lib/tss"
+	"github.com/ordinox/thorchain-tss-lib/crypto"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 
 	"github.com/ordinox/thorchain-tss/messages"
 )

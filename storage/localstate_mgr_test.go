@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.com/thorchain/tss/tss-lib/ecdsa/keygen"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-peerstore/addr"
 	tnet "github.com/libp2p/go-libp2p-testing/net"
