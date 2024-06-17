@@ -6,11 +6,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
-	"github.com/libp2p/go-libp2p-core/peer"
-	"github.com/libp2p/go-libp2p-peerstore/addr"
 	tnet "github.com/libp2p/go-libp2p-testing/net"
+	"github.com/libp2p/go-libp2p/core/peer"
 	maddr "github.com/multiformats/go-multiaddr"
+	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	. "gopkg.in/check.v1"
 
 	"github.com/ordinox/thorchain-tss/conversion"
@@ -75,7 +74,7 @@ func (s *FileStateMgrTestSuite) TestSaveLocalState(c *C) {
 }
 
 func (s *FileStateMgrTestSuite) TestSaveAddressBook(c *C) {
-	testAddresses := make(map[peer.ID]addr.AddrList)
+	testAddresses := make(map[peer.ID][]maddr.Multiaddr)
 	var t *testing.T
 	id1 := tnet.RandIdentityOrFatal(t)
 	id2 := tnet.RandIdentityOrFatal(t)

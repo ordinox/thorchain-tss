@@ -5,9 +5,9 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/libp2p/go-libp2p/core/peer"
 	bkg "github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
-	"github.com/libp2p/go-libp2p-core/peer"
 	. "gopkg.in/check.v1"
 
 	"github.com/ordinox/thorchain-tss/conversion"

@@ -15,11 +15,11 @@ import (
 	coskey "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types/bech32/legacybech32"
 	"github.com/decred/dcrd/dcrec/secp256k1/v4"
-	crypto2 "github.com/libp2p/go-libp2p-core/crypto"
-	"github.com/libp2p/go-libp2p-core/peer"
-	"gitlab.com/thorchain/binance-sdk/common/types"
+	crypto2 "github.com/libp2p/go-libp2p/core/crypto"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/ordinox/thorchain-tss-lib/crypto"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
+	"gitlab.com/thorchain/binance-sdk/common/types"
 
 	"github.com/ordinox/thorchain-tss/messages"
 )

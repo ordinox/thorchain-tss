@@ -3,8 +3,8 @@ package messages
 import (
 	"fmt"
 
+	"github.com/libp2p/go-libp2p/core/peer"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
-	"github.com/libp2p/go-libp2p-core/peer"
 )
 
 // THORChainTSSMessageType  represent the messgae type used in THORChain TSS

@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	btss "github.com/ordinox/thorchain-tss-lib/tss"
 	mapset "github.com/deckarep/golang-set"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/peer"
+	btss "github.com/ordinox/thorchain-tss-lib/tss"
 
 	"github.com/ordinox/thorchain-tss/conversion"
 	"github.com/ordinox/thorchain-tss/messages"

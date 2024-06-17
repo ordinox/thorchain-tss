@@ -15,15 +15,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ipfs/go-log"
 	tsslibcommon "github.com/ordinox/thorchain-tss-lib/common"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
-	"github.com/ipfs/go-log"
-	"github.com/libp2p/go-libp2p-peerstore/addr"
 	zlog "github.com/rs/zerolog/log"
 
 	"github.com/ordinox/thorchain-tss/conversion"
 
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/peer"
 	maddr "github.com/multiformats/go-multiaddr"
 	tcrypto "github.com/tendermint/tendermint/crypto"
 	"github.com/tendermint/tendermint/crypto/secp256k1"
@@ -85,11 +84,11 @@ func (m *MockLocalStateManager) GetLocalState(pubKey string) (storage.KeygenLoca
 	return state, nil
 }
 
-func (s *MockLocalStateManager) SaveAddressBook(address map[peer.ID]addr.AddrList) error {
+func (s *MockLocalStateManager) SaveAddressBook(address map[peer.ID][]maddr.Multiaddr) error {
 	return nil
 }
 
-func (s *MockLocalStateManager) RetrieveP2PAddresses() (addr.AddrList, error) {
+func (s *MockLocalStateManager) RetrieveP2PAddresses() ([]maddr.Multiaddr, error) {
 	return nil, os.ErrNotExist
 }
 

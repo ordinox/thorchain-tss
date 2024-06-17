@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/libp2p/go-libp2p/core/peer"
 	tsslibcommon "github.com/ordinox/thorchain-tss-lib/common"
-	"github.com/libp2p/go-libp2p-core/peer"
 
 	"github.com/ordinox/thorchain-tss/blame"
 	"github.com/ordinox/thorchain-tss/common"

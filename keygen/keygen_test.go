@@ -16,14 +16,14 @@ import (
 
 	"github.com/ipfs/go-log"
 
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/ordinox/thorchain-tss-lib/crypto"
-	"github.com/libp2p/go-libp2p-core/peer"
 	tcrypto "github.com/tendermint/tendermint/crypto"
 	"github.com/tendermint/tendermint/crypto/secp256k1"
 
+	maddr "github.com/multiformats/go-multiaddr"
 	btsskeygen "github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
-	maddr "github.com/multiformats/go-multiaddr"
 	. "gopkg.in/check.v1"
 
 	"github.com/ordinox/thorchain-tss/common"

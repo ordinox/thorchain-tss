@@ -8,8 +8,8 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/libp2p/go-libp2p/core/peer"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
-	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	tcrypto "github.com/tendermint/tendermint/crypto"

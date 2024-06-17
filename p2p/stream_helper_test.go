@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/libp2p/go-libp2p-core/network"
-	"github.com/libp2p/go-libp2p-core/protocol"
+	"github.com/libp2p/go-libp2p/core/network"
+	"github.com/libp2p/go-libp2p/core/protocol"
 	"github.com/magiconair/properties/assert"
 )
 
@@ -36,6 +36,17 @@ func (m MockNetworkStream) Read(buf []byte) (int, error) {
 		return 0, errors.New("you asked for it")
 	}
 	return m.Buffer.Read(buf)
+}
+func (m MockNetworkStream) CloseWrite() error {
+	return nil
+}
+
+func (m MockNetworkStream) Scope() network.StreamScope {
+	return nil
+}
+
+func (m MockNetworkStream) CloseRead() error {
+	return nil
 }
 
 func (m MockNetworkStream) Close() error {
@@ -68,16 +79,17 @@ func (m MockNetworkStream) Protocol() protocol.ID {
 	return m.protocol
 }
 
-func (m MockNetworkStream) SetProtocol(id protocol.ID) {
+func (m MockNetworkStream) SetProtocol(id protocol.ID) error {
 	m.protocol = id
+	return nil
 }
 
 func (s MockNetworkStream) ID() string {
 	return strconv.FormatInt(s.id, 10)
 }
 
-func (m MockNetworkStream) Stat() network.Stat {
-	return network.Stat{
+func (m MockNetworkStream) Stat() network.Stats {
+	return network.Stats{
 		Direction: 0,
 		Extra:     make(map[interface{}]interface{}),
 	}

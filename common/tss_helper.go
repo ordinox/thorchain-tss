@@ -14,13 +14,13 @@ import (
 	"strings"
 
 	"github.com/btcsuite/btcd/btcec/v2"
-	"github.com/libp2p/go-libp2p-core/peer"
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
-	tcrypto "github.com/tendermint/tendermint/crypto"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/ordinox/thorchain-tss-lib/ecdsa/keygen"
 	"github.com/ordinox/thorchain-tss-lib/ecdsa/signing"
 	btss "github.com/ordinox/thorchain-tss-lib/tss"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
+	tcrypto "github.com/tendermint/tendermint/crypto"
 
 	"github.com/ordinox/thorchain-tss/blame"
 	"github.com/ordinox/thorchain-tss/messages"
