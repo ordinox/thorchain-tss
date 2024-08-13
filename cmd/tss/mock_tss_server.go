@@ -31,6 +31,10 @@ func (mts *MockTssServer) GetLocalPeerID() string {
 	return conversion.GetRandomPeerID().String()
 }
 
+func (mts *MockTssServer) GetLocalPubKey() string {
+	return conversion.GetRandomPubKey()
+}
+
 func (mts *MockTssServer) GetKnownPeers() []tss.PeerInfo {
 	return []tss.PeerInfo{}
 }

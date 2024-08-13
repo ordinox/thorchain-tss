@@ -46,6 +46,7 @@ func (t *TssHttpServer) tssNewHandler() http.Handler {
 	router.Handle("/keysign", http.HandlerFunc(t.keySignHandler)).Methods(http.MethodPost)
 	router.Handle("/ping", http.HandlerFunc(t.pingHandler)).Methods(http.MethodGet)
 	router.Handle("/p2pid", http.HandlerFunc(t.getP2pIDHandler)).Methods(http.MethodGet)
+	router.Handle("/pubkey", http.HandlerFunc(t.getPubKeyHandler)).Methods(http.MethodGet)
 	router.Handle("/metrics", promhttp.Handler())
 	router.Use(logMiddleware())
 	return router
@@ -173,6 +174,14 @@ func (t *TssHttpServer) pingHandler(w http.ResponseWriter, _ *http.Request) {
 
 func (t *TssHttpServer) getP2pIDHandler(w http.ResponseWriter, _ *http.Request) {
 	localPeerID := t.tssServer.GetLocalPeerID()
+	_, err := w.Write([]byte(localPeerID))
+	if err != nil {
+		t.logger.Error().Err(err).Msg("fail to write to response")
+	}
+}
+
+func (t *TssHttpServer) getPubKeyHandler(w http.ResponseWriter, _ *http.Request) {
+	localPeerID := t.tssServer.GetLocalPubKey()
 	_, err := w.Write([]byte(localPeerID))
 	if err != nil {
 		t.logger.Error().Err(err).Msg("fail to write to response")
