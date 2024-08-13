@@ -68,6 +68,9 @@ func NewTss(
 		return nil, fmt.Errorf("fail to genearte the key: %w", err)
 	}
 
+	logger := log.With().Str("module", "tss").Logger()
+	logger.Info().Msgf("tss bech32 pubkey created, we are: %s", pubKey)
+
 	stateManager, err := storage.NewFileStateMgr(baseFolder)
 	if err != nil {
 		return nil, fmt.Errorf("fail to create file state manager")
@@ -115,7 +118,7 @@ func NewTss(
 	}
 	tssServer := TssServer{
 		conf:              conf,
-		logger:            log.With().Str("module", "tss").Logger(),
+		logger:            logger,
 		p2pCommunication:  comm,
 		localNodePubKey:   pubKey,
 		preParams:         preParams,
@@ -225,6 +228,11 @@ func (t *TssServer) joinParty(msgID, version string, blockHeight int64, particip
 // GetLocalPeerID return the local peer
 func (t *TssServer) GetLocalPeerID() string {
 	return t.p2pCommunication.GetLocalPeerID()
+}
+
+// GetLocalPeerID return the local peer
+func (t *TssServer) GetLocalPubKey() string {
+	return t.localNodePubKey
 }
 
 // GetKnownPeers return the the ID and IP address of all peers.
